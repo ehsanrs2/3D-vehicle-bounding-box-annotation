@@ -19,30 +19,30 @@
 برچسب‌زنی به‌صورت دستی کاری زمان‌بر است. این حالت وقتی‌که اندازه هدف کم است، یا هدف درصحنه‌های شلوغ تا حدی مسدود شده است (که معمولاً درصحنه‌های خیابان اتفاق می‌افتد) خسته‌کننده، زمان بر و پرهزینه می‌شود. درواقع، ترسیم جعبه‌های مرغوب و باکیفیت بسیار وقت‌گیر است و برای نمونه با استفاده از پلت فرم  (AMT) برای هر شی‌ء حدود 50-80 ثانیه زمان نیاز است[8]. ازاین‌رو، برای ایجاد چارچوب‌های برچسب‌زنی مؤثر برای ایجاد جعبه‌های محدودکننده برای مرجع حقیقی برای مجموعه داده‌های ویدیویی در مقیاس بزرگ، ضروری است. 
 مکان‌یابی اشیا به‌صورت سه‌بعدی در رانندگی خودکار و برنامه‌های ایمنی راننده از اهمیت فوق‌العاده‌ای برخوردار است. رویکردهای سنتی و معاصر عمدتاً به حس‌گرهای بُرد مانند LiDARs و رادار یا دوربین استریو برای پیش‌بینی موقعیت (6DoF) و ابعاد اشیا موردعلاقه متکی هستند. برخی از این رویکردها به‌طور آشکار در شرایط مختلف قوی هستند و باوجود انسداد زیاد، برش و غیره جعبه‌های تشخیص سه‌بعدی باکیفیت بالایی را تولید می‌کنند. این روش‌ها از داده‌های سه‌بعدی بهره‌مند هستند، این اطلاعات در  LiDAR به‌عنوان ابرهای نقطه، در رادار از اندازه‌گیری دامنه، دوربین‌های استریو از نقشه‌های عمق و یا ترکیبی از آنها به‌دست‌آمده است. بااین‌حال، مزایای حسگرهای سه‌بعدی تقریباً همیشه با نکات منفی خاصی همراه است. این حس‌گرها معمولاً نسبت به دوربین‌ها دارای قیمت‌های بالایی هستند و همچنین حجیم و پرمصرف می‌باشند. بنابراین در صورت دستیابی به شرایط مناسب، می‌توان با دوربین‌های تک‌چشمی تشخیص شی سه‌بعدی را انجام داد. یک آشکارساز سه‌بعدی قوی همچنین می‌تواند عملکرد ردیابی صرفاً مبتنی بر دوربین، پیش‌بینی و سایر سامانه‌های ایمنی راننده را به‌طورکلی بهبود بخشد. بااین‌حال این موضوع چالش‌های بسیاری را به وجود می‌آورد و بیشتر آن‌ها از این واقعیت ناشی می‌شود که پیش‌بینی ویژگی‌های سه‌بعدی از اندازه‌گیری‌های دوبعدی یک مسئله ذاتاً مشکل است.
 هدف از این تحقیق ارائه یک چهارچوب جهت برچسب‌زنی جعبه محدودکننده سه‌بعدی خودرو با استفاده از ردگيري برون‌خط در ویدئو خواهد بود. اهداف شامل موارد زیر می‌باشد:
-1-	یافتن جعبه محدودکننده دوبعدی.
-2-	یافتن جعبه محدودکننده سه‌بعدی با استفاده از جعبه محدودکننده دوبعدی و ویژگی‌های استخراج‌شده از آن و مشخصات هندسی صحنه و خودرو جهت تخمین عمق.
-3-	استفاده از اطلاعات توالی زمانی (فریم‌های ویدئو) جهت تخمین دقیق در مراحل بعد.
-4-	نظارت بر عملکرد چهارچوب ارائه‌شده توسط انسان جهت بررسی صحت اطلاعات.
-5-	ارائه مجموعه داده برچسب‌زنی شده جهت استفاده برای موارد موردنیاز در کارهای بعدی.
+1-	یافتن جعبه محدودکننده دوبعدی.  
+2-	یافتن جعبه محدودکننده سه‌بعدی با استفاده از جعبه محدودکننده دوبعدی و ویژگی‌های استخراج‌شده از آن و مشخصات هندسی صحنه و خودرو جهت تخمین عمق.  
+3-	استفاده از اطلاعات توالی زمانی (فریم‌های ویدئو) جهت تخمین دقیق در مراحل بعد.  
+4-	نظارت بر عملکرد چهارچوب ارائه‌شده توسط انسان جهت بررسی صحت اطلاعات.  
+5-	ارائه مجموعه داده برچسب‌زنی شده جهت استفاده برای موارد موردنیاز در کارهای بعدی.  
 روش کار به این صورت خواهد بود که مانند [5] ابتدا با روش های آماده، جعبه محدود کننده دو بعدی خودرو تشخیص داده می شود سپس با استفاده از استخراج ویژگی های تصویر محدود شده سعی در دنبال سازی این ویژگی ها در طول فریم های ویدئو میکنیم سپس با تخمین های هندسی مکان و جهت خودرو با توجه به دنبال سازی فیچر ها جعبه محدود کننده تخمین زده میشود.  
 
-ب) ویژگی¬های اصلی این پایان‌نامه که آن را از سایر پروژه‌ها متمایز می‌سازد.
-1-	بومی‌سازی مجموعه داده جهت استفاده در تحقیقات داخلی 
-2-	استفاده از دوربین تک‌چشمی جهت تخمین‌های موردنیاز 
-3-	استفاده از داده های ویدئو برای ساخت مجموعه داده ها 
+ ویژگی¬های اصلی این پایان‌نامه که آن را از سایر پروژه‌ها متمایز می‌سازد.   
+1-	بومی‌سازی مجموعه داده جهت استفاده در تحقیقات داخلی   
+2-	استفاده از دوربین تک‌چشمی جهت تخمین‌های موردنیاز   
+3-	استفاده از داده های ویدئو برای ساخت مجموعه داده ها   
 4-	استفاده از دنبال سازی برون خط برای تسهیل برچسب زدني سه بعدی خودرو
-پ) دستاوردهای نهایی:
+ دستاوردهای نهایی:  
+
 1-  ایجاد یک چهارچوب جهت تسهیل و خودکار نمودن برچسب‌زنی جعبه محدودکننده سه‌بعدی خودرو
 2-  انجام برچسب زنی تنها با استفاده از داده های ویدئو و بدون استفاده از حس‌گرهای بُرد مانند LiDARs و رادار یا دوربین استریو
 3-  ایجاد مجموعه داده جعبه محدود کننده سه بعدی با استفاده از چهارچوب از تصاویر ویدئویی.
 
-
-ت) حداقل سه مرجع (کتاب یا مقاله ISI) مرتبط با این پایان¬نامه را ذکر نمائید.
-[1]	J. Lee, S. Walsh, A. Harakeh, and S. L. Waslander, “Leveraging pre-trained 3d object detection models for fast ground truth generation,” in 2018 21st International Conference on Intelligent Transportation Systems (ITSC), 2018, pp. 2504–2510.
-[2]	D. Beker et al., “Monocular Differentiable Rendering for Self-Supervised 3D Object Detection,” arXiv Prepr. arXiv2009.14524, 2020.
-[3]	X. Ma, Z. Wang, H. Li, P. Zhang, W. Ouyang, and X. Fan, “Accurate monocular 3d object detection via color-embedded 3d reconstruction for autonomous driving,” in Proceedings of the IEEE/CVF International Conference on Computer Vision, 2019, pp. 6851–6860.
-[4]	Y. Wang, W.-L. Chao, D. Garg, B. Hariharan, M. Campbell, and K. Q. Weinberger, “Pseudo-lidar from visual depth estimation: Bridging the gap in 3d object detection for autonomous driving,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2019, pp. 8445–8453.
-[5]	L. Koestler, N. Yang, R. Wang, and D. Cremers, “Learning Monocular 3D Vehicle Detection without 3D Bounding Box Labels,” arXiv Prepr. arXiv2010.03506, 2020.
-[6]	H.-N. Hu et al., “Joint monocular 3D vehicle detection and tracking,” in Proceedings of the IEEE/CVF International Conference on Computer Vision, 2019, pp. 5390–5399.
-[7]	X. Weng, Y. Wang, Y. Man, and K. M. Kitani, “Gnn3dmot: Graph neural network for 3d multi-object tracking with 2d-3d multi-feature learning,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2020, pp. 6499–6508.
-[8]	H. Su, J. Deng, and L. Fei-Fei, “Crowdsourcing annotations for visual object detection,” 2012.
+ 
+[1]	J. Lee, S. Walsh, A. Harakeh, and S. L. Waslander, “Leveraging pre-trained 3d object detection models for fast ground truth generation,” in 2018 21st International Conference on Intelligent Transportation Systems (ITSC), 2018, pp. 2504–2510.  
+[2]	D. Beker et al., “Monocular Differentiable Rendering for Self-Supervised 3D Object Detection,” arXiv Prepr. arXiv2009.14524, 2020.  
+[3]	X. Ma, Z. Wang, H. Li, P. Zhang, W. Ouyang, and X. Fan, “Accurate monocular 3d object detection via color-embedded 3d reconstruction for autonomous driving,” in Proceedings of the IEEE/CVF International Conference on Computer Vision, 2019, pp. 6851–6860.  
+[4]	Y. Wang, W.-L. Chao, D. Garg, B. Hariharan, M. Campbell, and K. Q. Weinberger, “Pseudo-lidar from visual depth estimation: Bridging the gap in 3d object detection for autonomous driving,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2019, pp. 8445–8453.  
+[5]	L. Koestler, N. Yang, R. Wang, and D. Cremers, “Learning Monocular 3D Vehicle Detection without 3D Bounding Box Labels,” arXiv Prepr. arXiv2010.03506, 2020.  
+[6]	H.-N. Hu et al., “Joint monocular 3D vehicle detection and tracking,” in Proceedings of the IEEE/CVF International Conference on Computer Vision, 2019, pp. 5390–5399.  
+[7]	X. Weng, Y. Wang, Y. Man, and K. M. Kitani, “Gnn3dmot: Graph neural network for 3d multi-object tracking with 2d-3d multi-feature learning,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2020, pp. 6499–6508.  
+[8]	H. Su, J. Deng, and L. Fei-Fei, “Crowdsourcing annotations for visual object detection,” 2012.  
